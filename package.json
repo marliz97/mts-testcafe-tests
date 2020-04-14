@@ -8,6 +8,9 @@
   "author": {
     "name": "Vladislav Klimenkov"
   },
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "license": "ISC",
   "dependencies": {
     "testcafe": "^1.8.4"

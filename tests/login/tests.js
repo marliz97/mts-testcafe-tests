@@ -13,9 +13,9 @@ fixture('Captcha')
     
     // Общая чать, выполняемая каждым тестом, чтобы дойти до капчи
     await t .typeText (page.phone, '9998002818')    // Вводим номер телефона
-            .click    (page.submit)                 // Нажимаев войти
+            .click    (page.submit)                 // Нажимаем войти
             .typeText (page.smsCode, '1234')        // Вводим неверный код
-            .expect   (page.smsCode.value).eql('')  // Ожидаем автоочищения инпута после обработки запроса, чтобы можно ввести было следующий код
+            .expect   (page.smsCode.value).eql('')  // Ожидаем автоочищения инпута после обработки запроса
             .typeText (page.smsCode, '1234')        // Вводим неверный код 2-й раз
             .expect   (page.smsCode.value).eql('')  // Ожидаем автоочищения инпута
             .typeText (page.smsCode, '1234')        // Вводим неверный код 3-й раз
@@ -42,7 +42,7 @@ fixture('Captcha')
 
       const captchaSrcOld = await page.captchaImage.getAttribute('src') // получаем атрибут src у img#captcha-image
 
-      await t .addRequestHooks(logger)      // подключаем логгер для запроса https://login.mts.ru/amserver/UI/Login?service=login
+      await t .addRequestHooks(logger)      // Подключаем логгер для запроса https://login.mts.ru/amserver/UI/Login?service=login
               .click  (page.refreshCaptcha) // Рефрешим капчу
               .expect (logger.contains(record => record.response.statusCode === 200)).ok() // Ожидаем, что был отправлен успешный запрос
 
