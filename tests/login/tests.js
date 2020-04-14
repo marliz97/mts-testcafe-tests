@@ -23,6 +23,9 @@ fixture('Captcha')
   })
 
   test
+    .meta({
+      caseId: 'MTS-2'
+    })
     ('Type incorrect captcha', async t => { 
 
       const captchaSrcOld = await page.captchaImage.getAttribute('src') // получаем атрибут src у img#captcha-image
@@ -38,6 +41,9 @@ fixture('Captcha')
   })
 
   test
+    .meta({
+      caseId: 'MTS-3'
+    })
     ('Refresh captcha', async t => { 
 
       const captchaSrcOld = await page.captchaImage.getAttribute('src') // получаем атрибут src у img#captcha-image
